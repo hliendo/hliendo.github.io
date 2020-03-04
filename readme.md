@@ -1,17 +1,7 @@
 # Mis notas sobre Docker.
-# docker, nginx-proxy, letsencrypt and wordpress
+# Instalando [nginx-proxy](<https://hub.docker.com/r/jwilder/nginx-proxy/dockerfile>) y [letsencrypt](<https://letsencrypt.org>)
 
-# Objetivos
-
-Este es un humilde intento de explicar en castellano, y con mis conocimientos de otros lenguajes y plataformas, el funcionamiento de docker con NGINX-Proxy, Letsencrypt y Wordpress.
-
-Las imágenes de [docker hub](https://hub.docker.com) que se van a usar son de [Jason Wilder](http://jasonwilder.com).
-
-Se usaran las imagenes de : 
-* **[nginx-proxy](<https://hub.docker.com/r/jwilder/nginx-proxy/dockerfile>)**
-* **[letsencrypt-nginx-proxy-companion](<https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion/>)**
-
-# nginx
+## ¿Que es [nginx](<https://www.nginx.com>)?
 
 Nginx, pronunciado como “***engine-ex***”, es un servidor web de código abierto que, desde su éxito inicial como servidor web, ahora también es usado como proxy inverso, cache de HTTP, y balanceador de carga.
 
@@ -40,8 +30,16 @@ Si vemos los términos buscados en Google Search desde 2004 podemos ver que Apac
 
 Una vez más, cuando se considera que Nginx tiene un mejor rendimiento bajo escala, no es sorprendente que los sitios web con mucho tráfico opten por usar Nginx en lugar de Apache. Echa un vistazo a nuestra comparación más profunda de [Nginx vs Apache](https://kinsta.com/es/blog/nginx-vs-apache/).
 
-Para que se usa principalmente NGINX?
-Con el auge de microservicios, nginx es excelente como balanceador de carga, sumado a que es un reemplazo directo de Apache.
+
+
+##¿Que es [nginx-proxy](<https://hub.docker.com/r/jwilder/nginx-proxy/dockerfile>)?
+
+Nginx-Proxy es una implementación de la aplicación **[docker-gen](https://github.com/jwilder/docker-gen)** en conjunto con [nginx](<https://www.nginx.com>).
+
+Como funciona docker-gen:
+
+**Docker-gen**
+
 
 # docker-gen
 
@@ -57,6 +55,10 @@ Es un proxy reverso que junto con   **[docker-gen](https://github.com/jwilder/do
 nginx-proxy puede implementarse de dos maneras, una en un solo container, esto seria con la imagen de nginx-proxy, y otra con dos containers, uno con nginx y otro con docker-gen. 
 La implementación con dos contenedores se considera mas avanzada, ya que tendriamos un container con docker-gen, el cual podríamos usar no solo para implementar un proxy reverso, sino también para las otras plantillas que propone docker-gen, como por ejemplo Log Rotation.
 
+
+Se usaran las imagenes de : 
+* **[nginx-proxy](<https://hub.docker.com/r/jwilder/nginx-proxy/dockerfile>)**
+* **[letsencrypt-nginx-proxy-companion](<https://hub.docker.com/r/jrcs/letsencrypt-nginx-proxy-companion/>)**
 
 
 
